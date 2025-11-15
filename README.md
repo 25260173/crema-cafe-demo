@@ -2,6 +2,9 @@
 
 Simple demo website for a coffee shop. Educational project.
 
+[About](https://25260173.github.io/crema-cafe-demo/orders/templates/orders/order.html)
+[Menu](https://25260173.github.io/crema-cafe-demo/orders/templates/orders/menu.html)
+
 ## What is this
 
 - Demo version of a coffee ordering website
