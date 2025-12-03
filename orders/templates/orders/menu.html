@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crema Cafe - лучший кофе в унике">
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="../../../static/css/bootstrap.min.css">
+    <script src="../../../static/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Toastify-js -->
+    <link rel="stylesheet" type="text/css" href="../../../static/css/toastify.min.css">
+    <script type="text/javascript" src="../../../static/js/toastify.min.js" defer></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="../../static/orders/style.css">
+    <!-- Script -->
+    <script src="../../static/orders/script.js" defer></script>
+    <script src="../../static/orders/utils/menuCards.js"></script>
+    <script src="../../static/orders/utils/cartManager.js"></script>
+
+    <title>Crema Cafe</title>
+    <link rel="icon" href="../../static/orders/images/favicon.ico" type="image/x-icon">
+
+    </script>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">CREMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Меню</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Боковая панель -->
+            <aside class="col-md-3 aside-menu">
+                <h5>Категории</h5>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#hot_drinks" class="text-decoration-none text-dark">Горячие напитки</a></li>
+                    <li class="list-group-item"><a href="#matcha" class="text-decoration-none text-dark">Матча</a></li>
+                    <li class="list-group-item"><a href="#cold_drinks" class="text-decoration-none text-dark">Холодные напитки</a></li>
+                    <li class="list-group-item"><a href="#fresh" class="text-decoration-none text-dark">Фреши</a></li>
+                    <li class="list-group-item"><a href="#own_teas" class="text-decoration-none text-dark">Авторские чаи</a></li>
+                    <li class="list-group-item"><a href="#choco" class="text-decoration-none text-dark">Шоколадные напитки</a></li>
+                </ul>     
+                <div class="cart-container mt-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Корзина</h5>
+                        <span class="badge bg-dark rounded-pill" id="cart-count">0</span>
+                    </div>
+                    
+                    <div class="cart-items overflow-y-scroll" id="cart-items">
+                        <!-- Здесь будут отображаться товары -->
+                        <div class="text-muted text-center py-3" id="empty-cart-message">
+                            Корзина пуста
+                        </div>
+                    </div>
+                    
+                    <div class="cart-footer mt-3 d-none" id="cart-footer">
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>Итого:</strong>
+                            <strong id="total-price">0 ₸</strong>
+                        </div>
+                        <a href="./checkout.html" class="btn btn-dark w-100" id="checkout-btn">
+                            Перейти к оформлению
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Основная область контента -->
+            <section class="col-md-9 ">
+                <div class="category-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0" id="hot_drinks">Горячие напитки</h2>
+                        <a class="text-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#hot_drinks-section"
+                            onclick="document.getElementById('hot_drinks-chevron').classList.toggle('bi-chevron-down'); document.getElementById('hot_drinks-chevron').classList.toggle('bi-chevron-up');">
+                            <i class="bi bi-chevron-up" id="hot_drinks-chevron"></i>
+                        </a>
+                    </div>
+                    <section id="hot_drinks-section" class="collapse show"></section>
+                </div>
+
+                <div class="category-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0" id="matcha">Матча</h2>
+                        <a class="text-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#matcha-section"
+                            onclick="document.getElementById('matcha-chevron').classList.toggle('bi-chevron-down'); document.getElementById('matcha-chevron').classList.toggle('bi-chevron-up');">
+                            <i class="bi bi-chevron-up" id="matcha-chevron"></i>
+                        </a>
+                    </div>
+                    <section id="matcha-section" class="collapse show"></section>
+                </div>
+
+                <div class="category-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0" id="cold_drinks">Холодные напитки</h2>
+                        <a class="text-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#cold_drinks-section"
+                            onclick="document.getElementById('cold_drinks-chevron').classList.toggle('bi-chevron-down'); document.getElementById('cold_drinks-chevron').classList.toggle('bi-chevron-up');">
+                            <i class="bi bi-chevron-up" id="cold_drinks-chevron"></i>
+                        </a>
+                    </div>
+                    <section id="cold_drinks-section" class="collapse show"></section>
+                </div>
+
+                <div class="category-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0" id="fresh">Фреши</h2>
+                        <a class="text-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#fresh-section"
+                            onclick="document.getElementById('fresh-chevron').classList.toggle('bi-chevron-down'); document.getElementById('fresh-chevron').classList.toggle('bi-chevron-up');">
+                            <i class="bi bi-chevron-up" id="fresh-chevron"></i>
+                        </a>
+                    </div>
+                    <section id="fresh-section" class="collapse show"></section>
+                </div>
+
+                <div class="category-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0" id="own_teas">Авторские чаи</h2>
+                        <a class="text-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#own_teas-section"
+                            onclick="document.getElementById('own_teas-chevron').classList.toggle('bi-chevron-down'); document.getElementById('own_teas-chevron').classList.toggle('bi-chevron-up');">
+                            <i class="bi bi-chevron-up" id="own_teas-chevron"></i>
+                        </a>
+                    </div>
+                    <section id="own_teas-section" class="collapse show"></section>
+                </div>
+
+                <div class="category-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="mb-0" id="choco">Шоколадные напитки</h2>
+                        <a class="text-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#choco-section"
+                            onclick="document.getElementById('choco-chevron').classList.toggle('bi-chevron-down'); document.getElementById('choco-chevron').classList.toggle('bi-chevron-up');">
+                            <i class="bi bi-chevron-up" id="choco-chevron"></i>
+                        </a>
+                    </div>
+                    <section id="choco-section" class="collapse show"></section>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 KKSIHTK Enterprise. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="../documents/privacy-policy.html" class="text-light me-3">Политика конфиденциальности</a>
+                    <a href="../documents/license.html" class="text-light">Лицензия и Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Кнопка "Наверх" -->
+    <button id="backToTop" class="btn btn-dark position-fixed" style="display: none; bottom: 20px; right: 20px; z-index: 1000; width: 50px; height: 50px; border-radius: 50%;">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+</body>
+</html>

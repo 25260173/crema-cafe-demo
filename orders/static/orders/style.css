@@ -1,0 +1,532 @@
+.welcome {
+            height: 74.89dvh; background-color: rgba(0, 0, 0, 0.644); border-radius: 124px;
+        }
+
+        @media (max-width: 768px) {
+            .welcome {
+                height: 74.89dvh; background-color: rgba(0, 0, 0, 0.644); border-radius: 24px;
+            }
+        }
+
+/* Выделение при наведении */
+.list-group-item:hover {
+    background-color: #d8d8d8; /* bg-dark */
+    color: #e0e0e0;
+}
+
+/* Выделение при клике (пока держишь мышь) */
+.list-group-item:active {
+    background-color: #424a52; /* чуть темнее */
+    color: #fff !important;
+}
+
+.list-group-item a {
+    color: #fff;
+}
+
+.aside-menu {
+    position: sticky;
+    top: 25px; /* Начинает прилипать после навигационной панели */
+    align-self: flex-start; /* Для правильного позиционирования в flex/grid */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Для мобильных устройств можно уменьшить отступ */
+@media (max-width: 768px) {
+    .aside-menu {
+        top: 80px;
+    }
+}
+
+/* Дополнительные стили для улучшения UX */
+.aside-menu .list-group {
+    position: relative;
+    z-index: 100;
+}
+
+/* Чтобы боковая панель не перекрывала контент на маленьких экранах */
+@media (max-width: 768px) {
+    .aside-menu {
+        position: relative;
+        top: 0;
+    }
+}
+
+
+.cart-container {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+    gap: 1rem;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-name {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.cart-item-details {
+    font-size: 0.8rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.cart-item-price {
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.remove-btn {
+    color: #dc3545;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.remove-btn:hover {
+    color: #bb2d3b;
+    background: none;
+}
+
+/* Стили для контейнера корзины со скроллом */
+.cart-container {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 60vh; /* Ограничиваем высоту */
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto; /* Скролл при переполнении */
+    min-height: 100px;
+    max-height: 300px; /* Максимальная высота списка товаров */
+}
+
+/* Стилизация скроллбара для Webkit браузеров */
+.cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Для Firefox */
+.cart-items {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Убедимся, что aside не перекрывает контент */
+.aside-menu {
+    position: sticky;
+    top: 25px;
+    height: fit-content;
+    max-height: calc(100vh - 140px);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .cart-container {
+        max-height: none;
+    }
+    
+    .cart-items {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .aside-menu {
+        position: relative;
+        top: -50px;
+        margin-top: 1rem;
+    }
+    
+    /* Скрываем обычные категории на мобильных */
+    .aside-menu .d-none.d-lg-block {
+        display: none !important;
+    }
+}
+
+#backToTop {
+    background: #333;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#backToTop.show {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.8; }
+}
+
+:root {
+            --receipt-width: 68mm;
+            --receipt-bg: #fff;
+            --receipt-text: #000;
+        }
+        
+        .receipt-container {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: var(--receipt-width);
+            min-height: 138.5mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+        
+        .receipt-header {
+            text-align: center;
+            border-bottom: 1px dashed #000;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .company-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+        
+        .company-info {
+            font-size: 0.8em;
+            margin: 5px 0;
+        }
+        
+        .receipt-title {
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        
+        .receipt-date {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .receipt-items {
+            margin: 15px 0;
+        }
+        
+        .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+        
+        .item-name {
+            flex: 2;
+        }
+        
+        .item-price {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .receipt-divider {
+            border-bottom: 1px dashed #000;
+            margin: 10px 0;
+        }
+        
+        .receipt-total {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        
+        .receipt-footer {
+            text-align: center;
+            font-size: 0.7em;
+            margin-top: 20px;
+            border-top: 1px dashed #000;
+            padding-top: 10px;
+        }
+        
+        .receipt-qr {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .receipt-qr-placeholder {
+            width: 100px;
+            height: 100px;
+            background: #f0f0f0;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            border: 1px dashed #ccc;
+        }
+        
+        .comments-sidebar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn-download {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-print {
+            background: #007bff;
+            color: white;
+        }
+
+        .receipt-card-body {
+            overflow-y: auto;
+            max-height: 60vh;
+        }
+        
+        .btn-clear {
+            background: #dc3545;
+            color: white;
+        }
+
+        .topping-item {
+            margin-bottom: 5px;
+            font-size: 0.85em;
+            color: #666;
+            padding-left: 15px;
+        }
+
+        .volume-info {
+            font-size: 0.85em;
+            color: #666;
+            padding-left: 15px;
+        }
+        
+        @media print {
+            .comments-sidebar,
+            .action-buttons,
+            nav,
+            footer,
+            #backToTop {
+                display: none !important;
+            }
+            
+            .receipt-container {
+                width: 100% !important;
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            body {
+                background: white !important;
+            }
+            
+            .col-md-8 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+            }
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .form-section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-section h5 {
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .topping-options {
+            max-height: 100px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            background: white;
+        }
+
+        .volume-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .volume-btn {
+            flex: 1;
+            border: 2px solid #dee2e6;
+            background: white;
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .volume-btn:hover {
+            border-color: #adb5bd;
+        }
+
+        .volume-btn.active {
+            border-color: #007bff;
+            background-color: #e7f1ff;
+        }
+
+        .topping-checkbox {
+            margin-right: 8px;
+        }
+
+        .customer-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .customer-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .topping-dropdown-container {
+    position: relative;
+}
+
+.selected-toppings-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.selected-topping-item {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s;
+}
+
+.selected-topping-item:hover {
+    background-color: #e9ecef;
+}
+
+.remove-topping-btn {
+    padding: 0.1rem 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+.volume-select {
+    max-width: 300px;
+}
+
+.drink-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.drink-details h6 {
+    color: #495057;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.add-topping-btn {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .selected-topping-item {
+        font-size: 0.9rem;
+    }
+    
+    .volume-select, .topping-select {
+        font-size: 0.9rem;
+    }
+}
